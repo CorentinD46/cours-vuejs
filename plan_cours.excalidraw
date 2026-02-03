@@ -2213,7 +2213,7 @@
   "appState": {
     "gridSize": 20,
     "gridStep": 5,
-    "gridModeEnabled": false,
+    "gridModeEnabled": true,
     "viewBackgroundColor": "#ffffff"
   },
   "files": {}
