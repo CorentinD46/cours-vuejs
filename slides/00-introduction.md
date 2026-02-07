@@ -2,7 +2,6 @@
 marp: true
 paginate: true
 footer: Adrien Bouyssou (macdrien.github.io)
-transition: push
 ---
 
 
@@ -36,4 +35,6 @@ transition: push
 3. Initiation à un projet VueJS et son environnement
 4. Programmation dans un cas réel simplifié
 
-**On ne verra pas Typescript**
+## Typescript
+
+On ne l'abordera pas pour rester "simple" et s'économiser du temps.
