@@ -71,7 +71,7 @@ export default {
 };
 ```
 
---- 
+---
 
 ## Déclarer un composant - Composition API
 
@@ -108,25 +108,4 @@ const count = ref(0)
   <p>{{ count }}</p>
   <button @click="count++">Increment</button>
 </template>
-```
-
----
-
-## Déclarer un composant - JavaScript natif
-
-Obligatoire sans outil de build.
-
-```javascript
-import { ref } from "vue";
-
-export default {
-  setup() {
-    const count = ref(0);
-    return { count };
-  },
-  template: `
-    <p>{{ count }}</p>
-    <button @click="count++">Increment</button>
-  `,
-};
 ```
