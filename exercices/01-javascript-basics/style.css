@@ -1,0 +1,16 @@
+.main {
+    display: flex;
+}
+
+.games {
+    width: 50vw;
+}
+
+.content {
+    background-color: red;
+    width: 50vw;
+}
+
+.hidden {
+    visibility: hidden;
+}
