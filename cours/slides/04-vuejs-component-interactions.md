@@ -79,19 +79,6 @@ export default {
 
 ---
 
-## Définition d'un évènement - côté composant
-
-```javascript
-// Counter
-export default {
-  props: ["text"],
-  emits: ["onClick"],
-  template: `<button @click="$emit('onClick')">{{ text }}</button>`,
-};
-```
-
----
-
 ## Définition d'un évènement - côté composant dans le script
 
 ```javascript
@@ -104,7 +91,10 @@ export default {
       this.emit("onClick");
     },
   },
-  template: `<button @click='click'>{{ text }}</button>`,
+  template: `
+    <button @click='click'>{{ text }}</button>
+    <button @click="$emit('onClick')">{{ text }}</button>
+  `,
 };
 ```
 
