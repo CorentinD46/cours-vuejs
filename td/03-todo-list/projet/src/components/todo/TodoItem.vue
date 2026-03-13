@@ -1,4 +1,6 @@
 <script setup lang="js">
+import TagList from './TagList.vue';
+
 defineProps(['todo'])
 </script>
 
@@ -6,9 +8,7 @@ defineProps(['todo'])
   <li class="todo-item">
     <h3>{{ todo.title }}</h3>
     <span>{{ todo.status }}</span>
-    <ul class="tags">
-      <li class="tag" v-for="tag in todo.tags" :key="`${todo.title}-tag-${tag}`">{{ tag }}</li>
-    </ul>
+    <TagList :tags="todo.tags"/>
   </li>
 </template>
 
@@ -23,34 +23,8 @@ defineProps(['todo'])
 }
 
 h3 {
-  flex-basis: 300px;
+  flex-basis: 400px;
   overflow: hidden;
   font-size: 1.2em;
-}
-
-.tags {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 10px;
-
-  flex-grow: 1;
-}
-
-.tags li {
-  list-style: none;
-  padding: 3px 7px;
-
-  border: 2px solid;
-  border-radius: 33px;
-}
-
-.tags li:nth-child(2n) {
-  border-color: cornflowerblue;
-  background-color: azure;
-}
-
-.tags li:nth-child(2n + 1) {
-  border-color: lightcoral;
-  background-color: mistyrose;
 }
 </style>
