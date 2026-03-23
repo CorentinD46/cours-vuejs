@@ -3,7 +3,7 @@
 ## 1. Créer la liste
 
 1. Dans TodoItem, afficher le champs description de la todo reçue
-2. Stocker la liste todos.json dans une ref de ListView appelée todos
+2. Stocker la liste todos.js dans une ref de ListView appelée todos
 3. Dans TodoList, utiliser le composant TodoItem pour afficher la liste des tâches
 
 ## 2. Ajouter des éléments
