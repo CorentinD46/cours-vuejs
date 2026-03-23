@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pokedex</title>
+    <meta charset="utf-8"/>
+    <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<div id="app"></div>
+
+<script type="module">
+    import pokemonList from '../../pokemons.json' with {type: 'json'};
+    import plantList from '../../plants.json' with {type: 'json'};
+
+    const Card = {
+        props: ['id', 'name', 'imageUrl'],
+        template: `
+          <div :id="id" class="card">
+            <h3>{{ name }}</h3>
+            <img :src="imageUrl" :alt="\`Image of ${name}\`"/>
+          </div>`
+    }
+
+    const Pokedex = {
+        components: {Card},
+        data() {
+            return {
+                /* Ici, le nom du champ est le même
+                   que le nom de la variable,
+                   du coup pas besoin de mettre le
+                   même deux fois.
+                 */
+                pokemonList
+            }
+        },
+        template: `
+          <div>
+            <h2>Pokedex</h2>
+            <div class="list">
+              <Card v-for="pokemon in pokemonList"
+                    :key="pokemon.id"
+                    :id="pokemon.id"
+                    :name="pokemon.name"
+                    :imageUrl="pokemon.sprite"
+              />
+            </div>
+          </div>`,
+    }
+
+    const Plants = {
+        components: {Card},
+        data() {
+            return {
+                /* Ici, le nom du champ est le même
+                   que le nom de la variable,
+                   du coup pas besoin de mettre le
+                   même deux fois.
+                 */
+                plantList
+            }
+        },
+        template: `
+          <div>
+            <h2>Plants</h2>
+            <div class="list">
+              <Card v-for="plant in plantList"
+                    :key="plant.id"
+                    :id="plant.id"
+                    :name="plant.common_name"
+                    :imageUrl="plant.image_url">
+            </div>
+          </div>`,
+    }
+
+    const App = {
+        components: {
+            Plants,
+            Pokedex,
+        },
+        data() {
+            return {
+                isPokedex: true,
+            }
+        },
+        template: `
+          <div>
+            <label>
+              Afficher le Pokédex ?
+              <input v-model="isPokedex" type="checkbox" checked/>
+            </label>
+
+            <Pokedex v-if="isPokedex"/>
+            <Plants v-else/>
+          </div>`
+    }
+
+    Vue.createApp(App).mount('#app');
+</script>
+</body>
+</html>
